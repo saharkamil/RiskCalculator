@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "git.decorations.enabled": true,
+    "git.branchRandomName.enable": true,
+    "git.blame.statusBarItem.enabled": false,
+    "git.enabled": true
+}
