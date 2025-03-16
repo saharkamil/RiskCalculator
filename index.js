@@ -45,12 +45,12 @@ app.post("/api/riskCaculator", jsonParser, (req, res) => {
     else if (point <= 50) indicator = "Moderate risk";
     else if (point <=75) indicator = "High risk";
     else indicator = "Uninsurable";
-    app.get("*", (req,res)=>{
-      res.sendFile(path.join(__dirname,'index.html'));
-    });
+    
     
     res.json({ risk: indicator, points: point }); 
-  
+  app.get("*", (req,res)=>{
+      res.sendFile(path.join(__dirname,'index.html'));
+    });
   
   
 });
