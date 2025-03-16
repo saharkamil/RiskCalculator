@@ -4,12 +4,12 @@ const cors = require("cors");
 const path = require('path');
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
-
-//  app.use(cors({
-//          // allow specific domain or you can use '*' to allow everything
-//              origin:"*",
-//              method: ["GET", "POST" ,"UPDATE"]
-//      }));
+var port = process.env.PORT ||8080
+  app.use(cors({
+          // allow specific domain or you can use '*' to allow everything
+              origin:"*",
+              method: ["GET", "POST" ,"UPDATE"]
+      }));
 app.use(cors());
 app.use(express.static(path.join(__dirname)));
 app.get('/', )
@@ -50,4 +50,4 @@ app.post("/api/riskCaculator", jsonParser, (req, res) => {
     res.json({ risk: indicator, points: point }); 
 });
 
-app.listen(3002);
+app.listen(port);
