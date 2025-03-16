@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require('path');
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
 
 //  app.use(cors({
 //          // allow specific domain or you can use '*' to allow everything
@@ -9,9 +11,9 @@ const path = require('path');
 //              method: ["GET", "POST" ,"UPDATE"]
 //      }));
 app.use(cors());
-app.use(express.json());
 app.use(express.static(path.join(__dirname)));
-app.post("/api/riskCaculator", (req, res) => {
+app.get('/', )
+app.post("/api/riskCaculator", jsonParser, (req, res) => {
     const {age, bmi, bp, disease} = req.body; 
     let point=0;
     if (age <30 ) point += 0;
