@@ -12,7 +12,7 @@ var port = process.env.PORT ||8080
       }));
 app.use(cors());
 app.use(express.static(path.join(__dirname)));
-app.get('/', )
+
 app.post("/api/riskCaculator", jsonParser, (req, res) => {
     const {age, bmi, bp, disease} = req.body; 
     let point=0;
@@ -45,9 +45,14 @@ app.post("/api/riskCaculator", jsonParser, (req, res) => {
     else if (point <= 50) indicator = "Moderate risk";
     else if (point <=75) indicator = "High risk";
     else indicator = "Uninsurable";
-
+    app.get("*", (req,res)=>{
+      res.sendFile(path.join(__dirname,'index.html'));
+    });
     
     res.json({ risk: indicator, points: point }); 
+  
+  
+  
 });
 
 app.listen(port);
